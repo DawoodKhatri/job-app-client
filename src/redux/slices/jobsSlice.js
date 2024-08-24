@@ -77,7 +77,7 @@ export const updateJobStatus = createAsyncThunk(
 
       if (!response.data.success) throw new Error(response.data.message);
 
-      return response.data.data;
+      return { jobId, active: response.data.data.active };
     } catch (error) {
       return rejectWithValue(
         error.response ? error.response.data.message : error.message
@@ -165,7 +165,9 @@ const jobsSlice = createSlice({
       })
       .addCase(updateJobStatus.fulfilled, (state, action) => {
         state.jobs = state.jobs.map((job) =>
-          job._id === action.payload.job._id ? action.payload.job : job
+          job._id === action.payload.jobId
+            ? { ...job, active: action.payload.active }
+            : job
         );
         state.loading = false;
       })
