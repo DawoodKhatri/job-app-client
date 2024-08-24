@@ -49,7 +49,7 @@ export const signup = createAsyncThunk(
 
       if (!response.data.success) throw new Error(response.data.message);
 
-      return response.data;
+      return response.data.data;
     } catch (error) {
       return rejectWithValue(
         error.response ? error.response.data.message : error.message
@@ -67,6 +67,9 @@ const authSlice = createSlice({
     error: null,
   },
   reducers: {
+    clearError: (state) => {
+      state.error = null;
+    },
     logout: (state) => {
       localStorage.removeItem("token");
       state.token = null;
@@ -125,5 +128,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { clearError, logout } = authSlice.actions;
 export default authSlice.reducer;

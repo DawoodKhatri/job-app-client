@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { LoaderCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import { signup } from "@/redux/slices/authSlice";
+import { clearError, signup } from "@/redux/slices/authSlice";
 
 const SignupPage = () => {
   const form = useForm({
@@ -35,6 +35,7 @@ const SignupPage = () => {
   useEffect(() => {
     if (error) {
       toast({ variant: "destructive", description: error });
+      dispatch(clearError());
     }
   }, [error]);
 

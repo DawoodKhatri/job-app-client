@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const AuthProvider = ({ children }) => {
-  const { loading, isAuthenticated } = useSelector((state) => state.auth);
-  const { _id: userId } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { _id: userId, loading } = useSelector((state) => state.user);
 
   const location = useLocation();
   const navigate = useNavigate();
