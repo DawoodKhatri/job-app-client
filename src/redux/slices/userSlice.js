@@ -63,7 +63,7 @@ const userSlice = createSlice({
 
     builder
       .addCase(applyForJob.pending, (state) => {
-        state.loading = true;
+        // state.loading = true;
         state.error = null;
       })
       .addCase(applyForJob.fulfilled, (state, { payload }) => {

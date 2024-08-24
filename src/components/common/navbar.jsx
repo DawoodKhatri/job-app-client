@@ -24,7 +24,12 @@ const AppNavbar = () => {
       </Link>
       <div className="flex justify-center items-center gap-4">
         {isAuthenticated ? (
-          <Button onClick={handleLogout}>Logout</Button>
+          <>
+            <Button variant="outline" asChild>
+              <Link to="/jobs">Jobs</Link>
+            </Button>
+            <Button onClick={handleLogout}>Logout</Button>
+          </>
         ) : (
           <>
             <Button variant="outline" asChild>

@@ -175,7 +175,7 @@ const JobForm = ({ defaultValues, isUpdate }) => {
                 type="submit"
                 disabled={loading}
               >
-                {loading && <LoaderCircle className="animate-apin" />}
+                {loading && <LoaderCircle className="animate-spin" />}
                 {isUpdate ? "Update" : "Add"} Job
               </Button>
             </form>

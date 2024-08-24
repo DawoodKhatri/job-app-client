@@ -100,17 +100,17 @@ const UserJobsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {loading && (
+        {loading ? (
           <>
             <Skeleton className="w-full aspect-[4/3]" />
             <Skeleton className="w-full aspect-[4/3]" />
             <Skeleton className="w-full aspect-[4/3]" />
           </>
+        ) : (
+          getFilteredJobs().map((job, index) => (
+            <JobCard key={index} {...job} />
+          ))
         )}
-
-        {getFilteredJobs().map((job, index) => (
-          <JobCard key={index} {...job} />
-        ))}
       </div>
 
       {!loading && getFilteredJobs().length === 0 && (
