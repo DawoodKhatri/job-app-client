@@ -129,7 +129,7 @@ const SignupPage = () => {
                 type="submit"
                 disabled={loading}
               >
-                {loading && <LoaderCircle className="animate-apin" />}
+                {loading && <LoaderCircle className="animate-spin" />}
                 Create Account
               </Button>
             </form>
